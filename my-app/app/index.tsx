@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View, StyleSheet, Text, Button } from "react-native";
+import Botao from "@/components/Botao";
 
 export default function Home(){
 
@@ -12,7 +13,7 @@ export default function Home(){
   return(
     <View style={styles.principal}>
       <Text>Quantidade: {contador}</Text>
-      <Button title="AumentaContador" onPress={onClick} color={"blue"}/>
+      <Botao nome="heart" onPress={() => console.log('Clicou Coração')}/>
     </View>
   );
 
