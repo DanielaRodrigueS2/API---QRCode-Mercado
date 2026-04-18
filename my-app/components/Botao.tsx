@@ -11,7 +11,14 @@ const Botao = (props : ButtonProps) =>{
 
     return(
         <View>
-            <Pressable onPress={props.onPress} style={styles.botao}>
+            <Pressable  onPress={props.onPress} style={({pressed}) => [
+                {
+                    backgroundColor: pressed ? 'grey' : 'white',
+                    opacity: pressed ? 0.4: 1,
+                    top: pressed ? 4 : 0
+                },
+                styles.botao,
+            ]}>
                 <Ionicons name={props.nome} size={40} color="white" />
             </Pressable>
         </View>
@@ -21,7 +28,9 @@ const Botao = (props : ButtonProps) =>{
 
 const styles = StyleSheet.create({
     botao:{
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        padding: 10,
+        borderRadius: 30
     }
 })
 

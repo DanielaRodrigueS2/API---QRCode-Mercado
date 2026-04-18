@@ -18,17 +18,26 @@ export default function Home(){
       </View>
 
       <View style={styles.main}>
-        <Image></Image>
+        <Image source={require("../assets/images/qrCode.png")} style={styles.imagem}></Image>
         <Text style={styles.textScan}>Escaneie sua nota fiscal aqui</Text>
 
-        <Pressable style={styles.botao}>
+        <Pressable style={({pressed}) => [
+          {
+            backgroundColor: pressed ? 'darkblue' : 'blue',
+            opacity: pressed ? 0.7 : 1,
+            top: pressed ? 4 : 0
+          },
+          styles.botao
+        ]}>
           <Text style={styles.textButton}>Scanner</Text>
         </Pressable>
 
       </View>
 
       <View style={styles.footer}>
-
+        <Botao nome="cart"></Botao>
+        <Botao nome="camera"></Botao>
+        <Botao nome="settings"></Botao>
       </View>
     </SafeAreaView>
   );
@@ -56,17 +65,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: 'gray'
+    backgroundColor: '#919191'
   },
   footer:{
     flex: 0.1,
     width: '100%',
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
     backgroundColor: 'black'
   },
   botao:{
-    backgroundColor: 'blue',
+    backgroundColor: '#275791',
     borderWidth: 3,
     borderColor: 'black',
     borderRadius: 20,
@@ -81,5 +91,9 @@ const styles = StyleSheet.create({
     color: 'black',
     fontSize: 25,
     margin: 20
+  },
+  imagem:{
+    width: 256,
+    height: 310
   }
 })
