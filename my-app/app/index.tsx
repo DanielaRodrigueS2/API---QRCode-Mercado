@@ -32,8 +32,7 @@ export default function Home(){
           <Text style={styles.textButton}>Scanner</Text>
         </Pressable>
 
-        {visivel && <Camera visibilidade={visivel}  setVisibilidade={setVisivel}/>}
-
+    
       </View>
 
       <View style={styles.footer}>
@@ -41,7 +40,12 @@ export default function Home(){
         <Botao nome="camera"></Botao>
         <Botao nome="settings"></Botao>
       </View>
+
+      {visivel && <Camera visibilidade={visivel}  setVisibilidade={setVisivel}/>}
+
+
     </SafeAreaView>
+
   );
 
 }
