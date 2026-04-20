@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { View, StyleSheet, Text,Image, Pressable} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import Camera from "@/components/Camera";
 import Botao from "@/components/Botao";
 
 export default function Home(){
 
-  const [contador, setContador] = useState<number>(0)
-
-  const onClick = () =>{
-    setContador(contador+1);
-  }
+  const [contador, setContador] = useState<number>(0);
+  const [visivel, setVisivel] = useState(false);
 
   return(
     <SafeAreaView style={styles.principal}>
@@ -22,15 +20,19 @@ export default function Home(){
         <Text style={styles.textScan}>Escaneie sua nota fiscal aqui</Text>
 
         <Pressable style={({pressed}) => [
-          {
-            backgroundColor: pressed ? 'darkblue' : 'blue',
-            opacity: pressed ? 0.7 : 1,
-            top: pressed ? 4 : 0
-          },
-          styles.botao
-        ]}>
+            {
+              backgroundColor: pressed ? 'darkblue' : 'blue',
+              opacity: pressed ? 0.7 : 1,
+              top: pressed ? 4 : 0
+            },
+            styles.botao
+          ]}
+          onPress={() => setVisivel(true)}
+        >
           <Text style={styles.textButton}>Scanner</Text>
         </Pressable>
+
+        {visivel && <Camera visibilidade={visivel}  setVisibilidade={setVisivel}/>}
 
       </View>
 
@@ -41,8 +43,6 @@ export default function Home(){
       </View>
     </SafeAreaView>
   );
-
-
 
 }
 

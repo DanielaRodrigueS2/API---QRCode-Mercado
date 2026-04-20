@@ -38,7 +38,14 @@
             "backgroundColor": "#000000"
           }
         }
-      ]
+      ],
+      "expo-camera",
+      {
+        "cameraPermission": "Permita que $(PRODUCT_NAME) acesse sua camera ",
+        "microphonePermission": "Permita que $(PRODUCT_NAME) acesse sua camera",
+        "recordAudioAndroid": true,
+        "barcordeScannerEnabled": true
+      }
     ],
     "experiments": {
       "typedRoutes": true,
