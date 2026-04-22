@@ -44,7 +44,7 @@ const Camera = (props: CameraProps) =>{
     console.log('Aqui foi')
 
     return(
-        <SafeAreaView style={styles.cameraContainer}>
+        <View style={styles.cameraContainer}>
             <CameraView 
                 style={styles.camera}
                 facing={facing} 
@@ -59,28 +59,48 @@ const Camera = (props: CameraProps) =>{
                     }
                 }
             />
-        </SafeAreaView>
+            <Pressable onPress={() => props.setVisibilidade(false)}  
+                style={{
+                    position: 'absolute',
+                    marginTop: 50,
+                    marginRight: 30,
+                    padding: 20 ,
+                    alignSelf: 'flex-end'
+                }} 
+            >
+
+                <Text style={{
+                        fontSize: 28,
+                        color: 'white',
+                        alignSelf: 'center',
+                    }}
+                >
+                    X
+                </Text>
+            </Pressable>
+        </View>
     )
 
 }
 
 const styles = StyleSheet.create({
     permissao:{
-        flex: 0.5,
+        flex: 0.3,
         backgroundColor: '#62a0c4',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         width: '80%',
         position: 'absolute',
-        height: '80%',
+        height: '50%',
         borderWidth: 5,
         borderRadius: 10,
         borderColor: 'black'
     },
 
     texto:{
-        fontSize: 20,
-        color: 'white'
+        fontSize: 18,
+        color: 'white',
+        alignSelf: 'center',
     },
 
     botao:{
@@ -89,21 +109,18 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderRadius: 20,
         paddingHorizontal: 18,
-        paddingVertical: 6
+        paddingVertical: 6,
+        alignItems: 'center',
     },
     cameraContainer:{
         flex: 1,
-        position: 'relative',
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-        rowGap: 20
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
     },
     camera:{
-        flex: 1,
-        position: 'absolute',
         width: '100%', 
-        height: '100%'
+        height: '100%',
     }
 })
 

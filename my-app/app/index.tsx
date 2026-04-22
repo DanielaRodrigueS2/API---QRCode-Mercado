@@ -9,7 +9,14 @@ export default function Home(){
   const [contador, setContador] = useState<number>(0);
   const [visivel, setVisivel] = useState(false);
 
+   if(visivel){
+      return(
+        <Camera visibilidade={visivel}  setVisibilidade={setVisivel}/>
+      )
+    }
+
   return(
+    
     <SafeAreaView style={styles.principal}>
       <View style={styles.header}>
         <Text></Text>
@@ -40,9 +47,6 @@ export default function Home(){
         <Botao nome="camera"></Botao>
         <Botao nome="settings"></Botao>
       </View>
-
-      {visivel && <Camera visibilidade={visivel}  setVisibilidade={setVisivel}/>}
-
 
     </SafeAreaView>
 
