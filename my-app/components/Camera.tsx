@@ -59,6 +59,7 @@ const Camera = (props: CameraProps) =>{
                     }
                 }
             />
+
             <Pressable onPress={() => props.setVisibilidade(false)}  
                 style={{
                     position: 'absolute',
@@ -78,6 +79,23 @@ const Camera = (props: CameraProps) =>{
                     X
                 </Text>
             </Pressable>
+
+            <View style={{
+                    flex: 0.4,
+                    position: 'absolute',
+                    alignSelf: 'center',
+                    opacity: 0.2,
+                    backgroundColor: 'white',
+                    width: '60%',
+                    height: '30%',
+                    borderRadius: 30,
+                    marginTop: 300
+                    
+                }}
+            >
+
+            </View>
+
         </View>
     )
 
@@ -117,6 +135,8 @@ const styles = StyleSheet.create({
         position: 'absolute',
         width: '100%',
         height: '100%',
+        flexDirection: 'column'
+
     },
     camera:{
         width: '100%', 
