@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { View, StyleSheet, Text,Image, Pressable} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useRouter } from "expo-router";
 import Camera from "@/components/Camera";
 import Botao from "@/components/Botao";
 
-export default function Home(){
+
+export default function Home({}){
+
+  const router = useRouter();
+
 
   const [contador, setContador] = useState<number>(0);
   const [visivel, setVisivel] = useState(false);
@@ -43,7 +48,7 @@ export default function Home(){
       </View>
 
       <View style={styles.footer}>
-        <Botao nome="cart"></Botao>
+        <Botao onPress={() => router.navigate('/Carrinho')} nome="cart"></Botao>
         <Botao nome="camera"></Botao>
         <Botao nome="settings"></Botao>
       </View>
