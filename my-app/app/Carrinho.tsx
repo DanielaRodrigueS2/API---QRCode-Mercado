@@ -3,6 +3,7 @@ import { useRouter } from "expo-router"
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import Botao from "@/components/Botao";
+import CardCompra from "@/components/CardCompra"
 
 
 export default function Carrinho(){
@@ -17,7 +18,7 @@ export default function Carrinho(){
             </View>
 
             <View style={styles.main}>
-
+                <CardCompra data="janeiro" ></CardCompra>
             </View>
 
             <View style={styles.footer}>
