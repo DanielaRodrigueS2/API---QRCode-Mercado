@@ -11,6 +11,7 @@ const CardCompra = (props: CardCompraProps) => {
     const [visivel, setVisivel] = useState<Boolean> (false);
 
     const alteraVisibilidade = () =>{
+        console.log(visivel)
         setVisivel(!visivel);
     }
 
@@ -18,8 +19,8 @@ const CardCompra = (props: CardCompraProps) => {
         <View style={stylesCardCompra.card}>
             <View  style={stylesCardCompra.header}>
                 <Text  style={stylesCardCompra.texto}> Mês: {props.data}</Text>
-                <Pressable onPress={alteraVisibilidade}>
-                    <Ionicons name="chevron-down-outline" size={20} color='white'/>
+                <Pressable onPress={alteraVisibilidade} style={stylesCardCompra.botao}>
+                    <Ionicons name="chevron-down-outline" size={25} color='white' />
                 </Pressable>
             </View>
 
@@ -41,7 +42,7 @@ const stylesCardCompra = StyleSheet.create({
     },
 
     header:{
-        flex: 0.1,
+        flex: 0.15,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -54,8 +55,14 @@ const stylesCardCompra = StyleSheet.create({
         color: 'white'
     },
 
+    botao:{
+        marginRight: 10,
+        marginTop: 5
+    },
+
     compras:{
         flex: 0.9,
+        width: "100%",
         alignItems: 'center',
         flexDirection: 'column',
         justifyContent: 'space-around',
