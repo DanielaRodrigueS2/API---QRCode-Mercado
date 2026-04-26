@@ -8,8 +8,9 @@ export const unstable_settings = {
 export default function RootLayout() {
 
   return (
-      <Stack>
-        <Stack.Screen name='Home' options={{headerShown: false}} />
+      <Stack initialRouteName='Home'>
+        <Stack.Screen name='Home' options={{headerShown: false}} /> 
+        <Stack.Screen name='Carrinho' options={{headerShown: false}} />
       </Stack>
   );
 }
