@@ -1,9 +1,15 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import { View, Pressable, Text, StyleSheet, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 
+type Compras = {
+    id: string,
+    nome: string
+}
+
 type CardCompraProps ={
     data: string
+    conteudo: Compras[]
 }
 
 const CardCompra = (props: CardCompraProps) => {
@@ -18,13 +24,29 @@ const CardCompra = (props: CardCompraProps) => {
     return(
         <View style={stylesCardCompra.card}>
             <View  style={stylesCardCompra.header}>
-                <Text  style={stylesCardCompra.texto}> Mês: {props.data}</Text>
+                <Text  style={stylesCardCompra.texto}>{props.data}</Text>
                 <Pressable onPress={alteraVisibilidade} style={stylesCardCompra.botao}>
                     <Ionicons name="chevron-down-outline" size={25} color='white' />
                 </Pressable>
             </View>
 
-            {visivel && <View  style={stylesCardCompra.compras}></View>}
+            {visivel && (
+                <FlatList
+                    style={{backgroundColor: '#275791', width: '100%'}}
+                    contentContainerStyle={stylesCardCompra.compras}
+                    data={props.conteudo}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({item}) => (
+                        <Text>
+                            {item.nome}
+                        </Text>
+                    )}
+                    scrollEnabled={false}
+                />
+
+
+
+            )}
 
         </View>
 
@@ -34,20 +56,19 @@ const CardCompra = (props: CardCompraProps) => {
 
 const stylesCardCompra = StyleSheet.create({
     card:{
-        flex: 0.5,
-        alignItems: 'center',
+        marginVertical: 10,
         flexDirection: 'column',
         width: '80%',
         height: 'auto'
     },
 
     header:{
-        flex: 0.15,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        backgroundColor: 'black'
+        backgroundColor: 'black',
+        padding: 15,
     },
 
     texto:{
@@ -61,12 +82,7 @@ const stylesCardCompra = StyleSheet.create({
     },
 
     compras:{
-        flex: 0.9,
-        width: "100%",
-        alignItems: 'center',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        backgroundColor: '#275791',
+        padding: 10
     }
 
 })
