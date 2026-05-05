@@ -32,14 +32,16 @@ const CardCompra = (props: CardCompraProps) => {
 
             {visivel && (
                 <FlatList
-                    style={{backgroundColor: '#275791', width: '100%'}}
+                    style={{width: '100%', backgroundColor: '#275791'}}
                     contentContainerStyle={stylesCardCompra.compras}
                     data={props.conteudo}
                     keyExtractor={(item) => item.id}
                     renderItem={({item}) => (
-                        <Text>
-                            {item.nome}
-                        </Text>
+                        <Pressable>
+                            <Text>
+                                {item.nome}
+                            </Text>
+                        </Pressable>
                     )}
                     scrollEnabled={false}
                 />
@@ -59,7 +61,8 @@ const stylesCardCompra = StyleSheet.create({
         marginVertical: 10,
         flexDirection: 'column',
         width: '80%',
-        height: 'auto'
+        height: 'auto',
+        backgroundColor: 'white'
     },
 
     header:{
@@ -82,8 +85,11 @@ const stylesCardCompra = StyleSheet.create({
     },
 
     compras:{
-        padding: 10
+        padding: 0,
+        alignItems: 'center',
+        justifyContent: 'center'
     }
+
 
 })
 
