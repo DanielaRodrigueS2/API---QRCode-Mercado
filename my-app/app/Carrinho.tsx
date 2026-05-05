@@ -14,10 +14,10 @@ export default function Carrinho(){
             mes: 'Janeiro',
             compras: [
                 {
-                    id: '1', nome: 'Arroz'
+                    id: '1', dataCompra: '21/01/2026', valor: '200'
                 },
                 {
-                    id: '2', nome: 'Feijao'
+                    id: '2', dataCompra: '25/01/2026', valor: '150'
                 }
             ]
         },
@@ -26,12 +26,10 @@ export default function Carrinho(){
             mes: 'Fevereiro',
             compras: [
                 {
-                    id: '3', 
-                    nome: 'Arroz2'
+                    id: '1', dataCompra: '03/02/2026', valor: '90'
                 },
                 {
-                    id: '4', 
-                    nome: 'Feijao2'
+                    id: '2', dataCompra: '23/02/2026', valor: '300'
                 }
             ]
         }

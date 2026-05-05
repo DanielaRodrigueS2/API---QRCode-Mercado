@@ -1,10 +1,12 @@
 import React, { useState } from "react"
 import { View, Pressable, Text, StyleSheet, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
+import CompraEspecifica from "./CompraEspecifica"
 
 type Compras = {
     id: string,
-    nome: string
+    dataCompra: string,
+    valor: String
 }
 
 type CardCompraProps ={
@@ -31,23 +33,16 @@ const CardCompra = (props: CardCompraProps) => {
             </View>
 
             {visivel && (
-                <FlatList
-                    style={{width: '100%', backgroundColor: '#275791'}}
-                    contentContainerStyle={stylesCardCompra.compras}
-                    data={props.conteudo}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({item}) => (
-                        <Pressable>
-                            <Text>
-                                {item.nome}
-                            </Text>
-                        </Pressable>
-                    )}
-                    scrollEnabled={false}
-                />
-
-
-
+            <FlatList
+                style={{width: '100%', backgroundColor: '#275791', padding: 10, minWidth: '100%', alignItems: 'center'}}
+                contentContainerStyle={stylesCardCompra.compras}
+                data={props.conteudo}
+                keyExtractor={(item) => item.id}
+                renderItem={({item}) => (
+                    <CompraEspecifica id = {item.id} dataCompra={item.dataCompra} valor={item.valor}/>
+                )}
+                scrollEnabled={false}
+            />
             )}
 
         </View>
@@ -85,7 +80,6 @@ const stylesCardCompra = StyleSheet.create({
     },
 
     compras:{
-        padding: 0,
         alignItems: 'center',
         justifyContent: 'center'
     }
