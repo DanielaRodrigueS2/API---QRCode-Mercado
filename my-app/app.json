@@ -39,17 +39,16 @@
           }
         }
       ],
-      
       [
         "expo-camera",
-          {
-            "cameraPermission": "Permita que $(PRODUCT_NAME) acesse sua camera ",
-            "microphonePermission": "Permita que $(PRODUCT_NAME) acesse sua camera",
-            "recordAudioAndroid": true,
-            "barcordeScannerEnabled": true
-          }
-      ]
-
+        {
+          "cameraPermission": "Permita que $(PRODUCT_NAME) acesse sua camera ",
+          "microphonePermission": "Permita que $(PRODUCT_NAME) acesse sua camera",
+          "recordAudioAndroid": true,
+          "barcordeScannerEnabled": true
+        }
+      ],
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
