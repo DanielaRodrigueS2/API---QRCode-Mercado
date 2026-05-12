@@ -14,7 +14,12 @@ export default function Carrinho(){
             mes: 'Janeiro',
             compras: [
                 {
-                    id: '1', dataCompra: '21/01/2026', valor: '200'
+                    id: '1', dataCompra: '21/01/2026', valor: '200',
+                    produtos:[
+                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
+                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
+                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
+                    ]
                 },
                 {
                     id: '2', dataCompra: '25/01/2026', valor: '150'
