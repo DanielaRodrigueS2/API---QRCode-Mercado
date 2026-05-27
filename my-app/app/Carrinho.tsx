@@ -22,7 +22,12 @@ export default function Carrinho(){
                     ]
                 },
                 {
-                    id: '2', dataCompra: '25/01/2026', valor: '150'
+                    id: '2', dataCompra: '25/01/2026', valor: '150',
+                    produtos:[
+                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
+                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
+                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
+                    ]
                 }
             ]
         },
@@ -31,10 +36,20 @@ export default function Carrinho(){
             mes: 'Fevereiro',
             compras: [
                 {
-                    id: '1', dataCompra: '03/02/2026', valor: '90'
+                    id: '1', dataCompra: '03/02/2026', valor: '90',
+                    produtos:[
+                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
+                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
+                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
+                    ]
                 },
                 {
-                    id: '2', dataCompra: '23/02/2026', valor: '300'
+                    id: '2', dataCompra: '23/02/2026', valor: '300',
+                    produtos:[
+                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
+                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
+                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
+                    ]
                 }
             ]
         }

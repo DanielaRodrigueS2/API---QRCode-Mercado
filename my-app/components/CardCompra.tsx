@@ -3,10 +3,18 @@ import { View, Pressable, Text, StyleSheet, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import CompraEspecifica from "./CompraEspecifica"
 
+type Produtos = {
+    nome: string,
+    valor: string,
+    unidade: string,
+    quantidade: string
+}
+
 type Compras = {
     id: string,
     dataCompra: string,
-    valor: String
+    valor: string
+    produtos: Produtos[]
 }
 
 type CardCompraProps ={
@@ -21,6 +29,7 @@ const CardCompra = (props: CardCompraProps) => {
     const alteraVisibilidade = () =>{
         console.log(visivel)
         setVisivel(!visivel);
+        console.log(props.conteudo)
     }
 
     return(
