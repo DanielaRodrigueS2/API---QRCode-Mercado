@@ -1,5 +1,6 @@
 import React , {useState} from "react";
 import { Pressable, Text, View, StyleSheet } from "react-native";
+import { useRouter } from "expo-router";
 
 type CompraEspecifica = {
     id: String,
@@ -8,6 +9,8 @@ type CompraEspecifica = {
 }
 
 const CompraEspecifica = (props: CompraEspecifica) => {
+
+    const router = useRouter();
 
     return(
         <Pressable style={estiloCompras.clicavel}>
