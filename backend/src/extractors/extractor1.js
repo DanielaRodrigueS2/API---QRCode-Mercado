@@ -6,5 +6,7 @@ exports.extrairDados = async (url) =>{
 
     await page.goto(url);
 
-    await page.waitForSelector('.classe') // Iserir a classe do site nfe aqui
+    const produtos = await page.getByRole('table').allTextContents();
+    console.log(produtos);
+    
 }   
