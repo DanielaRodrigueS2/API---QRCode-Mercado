@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
-const NotaFiscal = require('./notaFiscal');
+const NotaFiscal = require('./notaFiscalModel');
 
 const User = new mongoose.Schema({
     nome:{
