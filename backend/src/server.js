@@ -1,10 +1,7 @@
-const espress = require('express');
-const cors = require('cors ');
-const app = express();
+require('dotenv').config();
+const mongoose = require('mongoose');
+const app = require('./app');
 
-app.use(express.json());
-app.use(cors());
-
-app.listen(3000, () =>{
-    console.log('Iniciou o server')
+app.listen(process.env.PORT || 3000, () =>{
+    console.log('Api rodando')
 })
