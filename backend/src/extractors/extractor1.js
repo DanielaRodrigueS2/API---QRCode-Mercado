@@ -7,8 +7,4 @@ exports.extrairDados = async (url) =>{
     await page.goto(url);
 
     await page.waitForSelector('.classe') // Iserir a classe do site nfe aqui
-
-    // codigo para extracao dos dados
-
-
 }   
