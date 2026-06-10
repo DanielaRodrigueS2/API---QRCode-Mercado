@@ -28,7 +28,6 @@ exports.gerarNotaFiscal = async (req, res) =>{
 exports.getAllNotas = async (req, res) =>{
 
     const userId = req.user.id;
-
     try{
         const notas = await User.findById(userId).select('notas')
         if (!notas) return res.status(401).json({erro: 'Nota(s) não localizadas'});
@@ -38,6 +37,14 @@ exports.getAllNotas = async (req, res) =>{
     catch(erro){
         res.status(500).json({erro: 'ERRO NO SERVER'});
     }
+
+}
+
+exports.deleteNotaById = async (req, res) =>{
+
+    const notaId = req.params.id;
+
+    
 
 
 }
