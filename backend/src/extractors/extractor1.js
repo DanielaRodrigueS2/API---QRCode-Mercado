@@ -7,12 +7,15 @@ exports.extrairDados = async (url) =>{
     await page.goto(url);
 
     const locator = await page.locator('tr').filter({has: page.getByRole('cell')}).allInnerTexts();
-    const nome = await page.getByRole('heading').filter({has: page.locator('b')}).innerText();
+    const informacoes = await page.locator('#collapse4').locator('td').allInnerTexts();
 
     const notaFiscal = {
-        local: nome,
+        linkAcesso: url,
+        local: informacoes[0],
+        dataEmissao: informacoes[10],
         cnpj : locator[0].slice(6,15),
         endereco : locator[1],
+        valorTotal: parseFloat(informacoes[11].replace(',', '.').replace('R$ ', '')),
         produtos: []
     };
 
@@ -27,6 +30,8 @@ exports.extrairDados = async (url) =>{
 
         notaFiscal.produtos.push(produtoFinal);
     }
+
+
     console.log(notaFiscal);
     await navegador.close();
     return notaFiscal;
