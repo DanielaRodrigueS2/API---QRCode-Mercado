@@ -2,12 +2,12 @@ const mongoose = require('mongoose');
 const Produtos = require('./productModel');
 
 const NotaFiscal = new mongoose.Shchema({
-    chaveAcesso: String,
-    numeroNota: String,
-    serie: String,
-    dataHora: String,
+    linkAcesso: String,
+    local: String,
+    dataEmissao: Date,
+    cnpj: String,
+    endereco: String,
     valorTotal: Number,
-    formaPagamento: String,
     produtos: [Produtos],
 })
 
