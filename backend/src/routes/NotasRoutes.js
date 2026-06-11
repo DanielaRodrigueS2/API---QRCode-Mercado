@@ -7,3 +7,4 @@ router.post('/gerarNota', Auth, NotaController.gerarNotaFiscal);
 router.get('/retornaNotas', Auth, NotaController.getAllNotas);
 router.put('/exlcuiNota', Auth, NotaController.deleteNotaById);
 
+module.exports = router;

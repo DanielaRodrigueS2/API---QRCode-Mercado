@@ -17,7 +17,7 @@ const User = new mongoose.Schema({
         required: true
     },
     notas:{
-        type: [NotaFiscal]
+        type: {type: [NotaFiscal.schema]}
     }
 })
 
