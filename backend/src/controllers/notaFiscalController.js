@@ -43,8 +43,28 @@ exports.getAllNotas = async (req, res) =>{
 exports.deleteNotaById = async (req, res) =>{
 
     const notaId = req.params.id;
+    const userId = req.user.id;
 
-    
+    try{
+
+        const notaDelete = await Nota.findById(nota_id);
+        if(!notaDelete) return res.status(401).json({erro: 'Nota não encontrada'})
+
+        const usuario = await User.updateOne(
+            {_id: userId},
+            {
+                $pull:{
+                    notas: notaDelete
+                },
+            }
+        )
+        res.status(200).json(usuario);
+    }
+    catch(erro){
+        return res.status(500).json({erro: 'Erro ao excluir nota fiscal'})
+    }
+
+     
 
 
 }
