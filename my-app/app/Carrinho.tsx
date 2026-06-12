@@ -10,52 +10,72 @@ export default function Carrinho(){
 
     const dados = [
         {
-            id: '1',
-            mes: 'Janeiro',
-            compras: [
+            "_id": "6a2c1b616187e8e065c53398",
+            "linkAcesso": "https://portalsped.fazenda.mg.gov.br/portalnfce/sistema/qrcode.xhtml?p=31260618809277000800652580000189061101509526%7C2%7C1%7C1%7CC5F83403AEE954A6BB42167A1AC480FCD0F9EB3A",
+            "local": "CASA FIDELIS LTDA",
+            "dataEmissao": "12/06/2026 10:59:06",
+            "cnpj": "188092770",
+            "endereco": "AV. DOUTOR MANOEL ALVES PEREIRA, 277, CENTRO, 3107406 - BOM DESPACHO, MG",
+            "valorTotal": 25.3,
+            "produtos": [
                 {
-                    id: '1', dataCompra: '21/01/2026', valor: '200',
-                    produtos:[
-                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
-                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
-                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
-                    ]
+                    "nome": "ALHO GRAUDO KG",
+                    "qtd": 0.055,
+                    "un": "KG",
+                    "valorTotal": 1.42
                 },
                 {
-                    id: '2', dataCompra: '25/01/2026', valor: '150',
-                    produtos:[
-                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
-                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
-                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
-                    ]
+                    "nome": "COXINH ASA FR AUR IQF 1KG ",
+                    "qtd": 1,
+                    "un": "PC",
+                    "valorTotal": 16.98
+                },
+                {
+                    "nome": "ENERGETICO BALY MELANCIA S/ACU 473ML ",
+                    "qtd": 1,
+                    "un": "LT",
+                    "valorTotal": 6.98
                 }
-            ]
+            ],
+            "__v": 0
         },
         {
-            id: '2',
-            mes: 'Fevereiro',
-            compras: [
+            "_id" : "6a2c12cc55e9f6bcd09b976e",
+            "linkAcesso": "https://portalsped.fazenda.mg.gov.br/portalnfce/sistema/qrcode.xhtml?p=31260618809277000800652580000180301214461177%7C2%7C1%7C1%7C0D3DC5A799A754F775EABEB13F600D3129F060A2",
+            "local": "CASA FIDELIS LTDA",
+            "dataEmissao": "08/06/2026 09:14:06",
+            "cnpj": "188092770",
+            "endereco": "AV. DOUTOR MANOEL ALVES PEREIRA, 277, CENTRO, 3107406 - BOM DESPACHO, MG",
+            "valorTotal": 35.31,
+            "produtos": [
                 {
-                    id: '1', dataCompra: '03/02/2026', valor: '90',
-                    produtos:[
-                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
-                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
-                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
-                    ]
+                    "nome": "MARIA MOLE FIDEL KG",
+                    "qtd": 0.15,
+                    "un": "KG",
+                    "valorTotal": 7.19
                 },
                 {
-                    id: '2', dataCompra: '23/02/2026', valor: '300',
-                    produtos:[
-                        {nome: 'Abacaxi', valor: '50', unidade: 'kg', quantidade: '0.20'},
-                        {nome: 'Suco-Melancia', valor: '10', unidade: 'qtd', quantidade: '2'},
-                        {nome: 'Banana', valor: '10', unidade: 'kg', quantidade: '0.6'}
-                    ]
+                    "nome": "COX ASA TEMP RESF K",
+                    "qtd": 0.764,
+                    "un": "KG",
+                    "valorTotal": 12.91
+                },
+                {
+                    "nome": "REFRIG SUKITA LIMAO 2L ",
+                    "qtd": 1,
+                    "un": "PE",
+                    "valorTotal": 7.49
+                },
+                {
+                    "nome": "REFRIG PEPSI BLACK 2L ",
+                    "qtd": 1,
+                    "un": "PE",
+                    "valorTotal": 8.99
                 }
-            ]
+            ],
+            "__v": 0
         }
-
     ]
-
 
     const router = useRouter();
 
@@ -66,7 +86,7 @@ export default function Carrinho(){
                 <Text></Text>
             </View>
 
-            <FlatList data={dados}  style={{width: '100%', backgroundColor: '#919191'}} keyExtractor={(item) => item.id} renderItem={({item}) => (<CardCompra data={item.mes} conteudo={item.compras} ></CardCompra>)}  contentContainerStyle={styles.main}/>
+            <FlatList data={dados}  style={{width: '100%', backgroundColor: '#919191'}} keyExtractor={(item) => item._id} renderItem={({item}) => (<CardCompra data={item.dataEmissao} conteudo={item} ></CardCompra>)}  contentContainerStyle={styles.main}/>
 
             <View style={styles.footer}>
                 <Botao onPress={() => router.navigate('/Carrinho')} nome="cart"></Botao>

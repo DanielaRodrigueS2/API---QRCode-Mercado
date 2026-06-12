@@ -3,9 +3,9 @@ import { Pressable, Text, View, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 
 type CompraEspecifica = {
-    id: String,
-    dataCompra: String,
-    valor: String,
+    id: string,
+    dataCompra: string,
+    valor: number,
 }
 
 const CompraEspecifica = (props: CompraEspecifica) => {

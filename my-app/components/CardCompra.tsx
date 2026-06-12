@@ -3,17 +3,20 @@ import { View, Pressable, Text, StyleSheet, FlatList } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import CompraEspecifica from "./CompraEspecifica"
 
-type Produtos = {
+interface Produtos {
     nome: string,
-    valor: string,
-    unidade: string,
-    quantidade: string
+    qtd: number,
+    un: string,
+    valorTotal: number
 }
 
-type Compras = {
-    id: string,
-    dataCompra: string,
-    valor: string
+interface Compras {
+    _id: string,
+    local: string,
+    dataEmissao: string,
+    cnpj: string,
+    endereco: string
+    valorTotal: number,
     produtos: Produtos[]
 }
 
@@ -46,9 +49,9 @@ const CardCompra = (props: CardCompraProps) => {
                 style={{width: '100%', backgroundColor: '#275791', padding: 10, minWidth: '100%', alignItems: 'center'}}
                 contentContainerStyle={stylesCardCompra.compras}
                 data={props.conteudo}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item._id}
                 renderItem={({item}) => (
-                    <CompraEspecifica id = {item.id} dataCompra={item.dataCompra} valor={item.valor}/>
+                    <CompraEspecifica id = {item._id} dataCompra={item.dataEmissao} valor={item.valorTotal}/>
                 )}
                 scrollEnabled={false}
             />
