@@ -9,7 +9,7 @@ exports.extrairDados = async (url) =>{
     try{
         await page.goto(url,{
             waitUntil: 'domcontentloaded',
-            timeout: 60000
+            timeout: 120000
         });
     }
     catch(erro){
