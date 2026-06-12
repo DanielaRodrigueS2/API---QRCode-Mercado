@@ -42,9 +42,11 @@ exports.getAllNotas = async (req, res) =>{
         const notas = await User.findById(userId).select('notas')
         if (!notas) return res.status(401).json({erro: 'Nota(s) não localizadas'});
 
+        console.log(notas);
 
+        const notasTotais = await Nota.find({_id: { $in: notas.notas}})
 
-        return res.status(200).json(notas);
+        return res.status(200).json(notasTotais);
     }
     catch(erro){
         res.status(500).json({erro: 'ERRO NO SERVER'});
@@ -75,8 +77,5 @@ exports.deleteNotaById = async (req, res) =>{
     catch(erro){
         return res.status(500).json({erro: 'Erro ao excluir nota fiscal'})
     }
-
-     
-
 
 }
