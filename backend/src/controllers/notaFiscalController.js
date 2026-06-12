@@ -4,14 +4,14 @@ const User = require('../models/userModel');
 const Extractor = require('../extractors/extractor1');
 
 exports.gerarNotaFiscal = async (req, res) =>{
-    console.log('Entrou aaqui');
+
     const {urlNota} = req.body;
-    const {userId} = req.user.id;
-    console.log(urlNota, userId);
+    const userId = req.user.id;
 
     try{
+        console.log('Extração comecou');
         const dadosNota = await Extractor.extrairDados(urlNota)
-        console.log('DadosNota: ', dadosNota);
+        console.log('Extração terminou');
 
         if(!dadosNota) return res.status(400).json({erro: 'Url ou código incorretor, extração falhou'});
         console.log('Erro0');

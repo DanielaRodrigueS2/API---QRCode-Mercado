@@ -2,12 +2,34 @@ const {chromium} = require('playwright');
 
 exports.extrairDados = async (url) =>{
     const navegador = await chromium.launch();
+    console.log('1')
     const page = await navegador.newPage();
+    console.log('2')
 
-    await page.goto(url);
+    try{
+        await page.goto(url,{
+            waitUntil: 'domcontentloaded',
+            timeout: 60000
+        });
+    }
+    catch(erro){
+        await navegador.close();
+        console.log('erro no goto', erro);
+    }
+    
+
+    console.log('2.1')
+    console.log(await page.title());
+    console.log('2.2')
+    console.log(page.url());
+    console.log('2.3');
 
     const locator = await page.locator('tr').filter({has: page.getByRole('cell')}).allInnerTexts();
+    console.log('3')
+
     const informacoes = await page.locator('#collapse4').locator('td').allInnerTexts();
+
+    console.log('4')
 
     const notaFiscal = {
         linkAcesso: url,
