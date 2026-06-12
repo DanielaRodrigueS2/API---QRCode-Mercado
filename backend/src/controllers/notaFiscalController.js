@@ -24,7 +24,7 @@ exports.gerarNotaFiscal = async (req, res) =>{
         console.log('Erro2');
         await notaFiscal.save();
 
-        await User.findByIdAndUpdate(userId, {$addToSet: {notas:  notaFiscal}});
+        await User.findByIdAndUpdate(userId, {$addToSet: {notas:  notaFiscal._id}, }, {returnDocument: 'after'});
 
         console.log('Erro3');
         res.status(201).json({message: 'nota criada e salva com sucesso'});
@@ -42,6 +42,8 @@ exports.getAllNotas = async (req, res) =>{
         const notas = await User.findById(userId).select('notas')
         if (!notas) return res.status(401).json({erro: 'Nota(s) não localizadas'});
 
+
+
         return res.status(200).json(notas);
     }
     catch(erro){
@@ -57,14 +59,14 @@ exports.deleteNotaById = async (req, res) =>{
 
     try{
 
-        const notaDelete = await Nota.findById(nota_id);
+        const notaDelete = await Nota.findById(notaId);
         if(!notaDelete) return res.status(401).json({erro: 'Nota não encontrada'})
 
         const usuario = await User.updateOne(
             {_id: userId},
             {
                 $pull:{
-                    notas: notaDelete
+                    notas: notaId
                 },
             }
         )

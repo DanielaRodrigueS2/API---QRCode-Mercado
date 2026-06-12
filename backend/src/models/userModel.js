@@ -16,10 +16,7 @@ const User = new mongoose.Schema({
         type: String,
         required: true
     },
-    notas:{
-        type: [NotaFiscal.schema],
-        default: []
-    }
+    notas:[{type: mongoose.Schema.Types.ObjectId, ref: 'Nota'}]
 })
 
 User.pre('save', async function(){

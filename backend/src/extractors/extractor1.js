@@ -1,12 +1,16 @@
 const {chromium} = require('playwright');
 
 exports.extrairDados = async (url) =>{
+    const html = await fetch(url).then(r => r.text());
+
     const navegador = await chromium.launch();
     console.log('1')
     const page = await navegador.newPage();
     console.log('2')
 
-    try{
+    await page.setContent(html);
+
+    /*try{
         await page.goto(url,{
             waitUntil: 'domcontentloaded',
             timeout: 120000
@@ -15,7 +19,7 @@ exports.extrairDados = async (url) =>{
     catch(erro){
         await navegador.close();
         console.log('erro no goto', erro);
-    }
+    }*/
     
 
     console.log('2.1')
@@ -43,6 +47,7 @@ exports.extrairDados = async (url) =>{
 
     for(let i=2; i < locator.length; i++){
         let produto = locator[i].split('\t');
+        if(produto.length != 4) break;
         let produtoFinal = {
             nome: produto[0].slice(0,-18),
             qtd: parseFloat(produto[1].slice(21,).replace(',', '.')),
