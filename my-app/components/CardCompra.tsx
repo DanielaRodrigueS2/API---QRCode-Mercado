@@ -22,7 +22,7 @@ interface Compras {
 
 type CardCompraProps ={
     data: string
-    conteudo: Compras[]
+    conteudo: Compras
 }
 
 const CardCompra = (props: CardCompraProps) => {
