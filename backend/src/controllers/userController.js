@@ -20,6 +20,7 @@ exports.register = async (req, res) =>{
         res.status(201).json({message: 'Usuário criado com sucesso'});
     }
     catch(erro){
+        console.log('Erro ao criar user')
         res.status(500).json({erro});
     }
 };

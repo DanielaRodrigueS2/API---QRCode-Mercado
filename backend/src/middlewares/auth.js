@@ -9,11 +9,11 @@ module.exports = (req, res, next) => {
     const tokenAuth = authHeader.split(' ')[1];
 
     try{
-        const decodedToken = jwt.verify(process.env.JWT_SECRET);
+        const decodedToken = jwt.verify(tokenAuth, process.env.JWT_SECRET);
         req.user = decodedToken;
         next();
     }
     catch(erro){
-        return res.status(401).json({erro: 'Toekn inválido'});
+        return res.status(401).json({erro});
     }
 }

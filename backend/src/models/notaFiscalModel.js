@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const NotaFiscal = new mongoose.Schema({
     linkAcesso: String,
     local: String,
-    dataEmissao: Date,
+    dataEmissao: String,
     cnpj: String,
     endereco: String,
     valorTotal: Number,
